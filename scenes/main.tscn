@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dll5v1xhuq4yk"]
+[gd_scene load_steps=11 format=3 uid="uid://dll5v1xhuq4yk"]
 
 [ext_resource type="Theme" uid="uid://cyggt5eemrenc" path="res://theme/theme.tres" id="1_12t6l"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_gn6gb"]
 [ext_resource type="Texture2D" uid="uid://duullsecmpkww" path="res://art/BlauerHintergrund.png" id="2_i1gqh"]
 [ext_resource type="Texture2D" uid="uid://clbxibfww1g5o" path="res://art/Show_sums.png" id="4_kveva"]
+[ext_resource type="Texture2D" uid="uid://bgehgk8a10lmt" path="res://art/Fireworks.jpg" id="4_qju6x"]
 [ext_resource type="FontFile" uid="uid://b717gwhbfimct" path="res://font/INKFREE.TTF" id="4_slliq"]
 [ext_resource type="PackedScene" uid="uid://dgdpi8r2jt6xf" path="res://scenes/die.tscn" id="5_mjbfu"]
 [ext_resource type="Texture2D" uid="uid://kev12ya8c4dp" path="res://art/cancel_button.png" id="6_td7rd"]
@@ -165,6 +166,109 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("4_slliq")
 theme_override_font_sizes/font_size = 30
 text = "Weiter"
+
+[node name="KniffelPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -161.5
+offset_top = -641.0
+offset_right = 161.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/KniffelPanel"]
+y_sort_enabled = true
+layout_mode = 0
+offset_right = 322.0
+offset_bottom = 641.0
+texture = ExtResource("4_qju6x")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/KniffelPanel"]
+z_index = 1
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -114.0
+offset_top = -150.0
+offset_right = 114.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/KniffelPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.933333, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_slliq")
+theme_override_font_sizes/normal_font_size = 60
+text = "Hurra! 
+Kniffel!!!"
+
+[node name="KniffelClearButton" type="Button" parent="CanvasLayer/KniffelPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Ok"
+
+[node name="EndGamePanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -110.5
+offset_right = 132.0
+offset_bottom = 110.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EndGamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -86.0
+offset_right = 113.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndGameLabel" type="Label" parent="CanvasLayer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Spiel beendet!
+Gewonnen hat:
+Spieler 1"
+
+[node name="HighscoreButton" type="Button" parent="CanvasLayer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Highscores"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/EndGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Hauptmenü"
 
 [node name="RenewArea" type="Area2D" parent="."]
 visible = false
@@ -757,6 +861,9 @@ one_shot = true
 [connection signal="text_changed" from="CanvasLayer/NewGamePanel/VBoxContainer2/CountPlayersLineEdit" to="." method="_on_count_players_line_edit_text_changed"]
 [connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer3/ContinueButton2" to="." method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/KniffelPanel/VBoxContainer/KniffelClearButton" to="." method="_on_kniffel_clear_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndGamePanel/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/EndGamePanel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="RenewArea/NewRollDiceButton" to="." method="_on_new_roll_dice_button_pressed"]
 [connection signal="area_entered" from="KeepArea" to="." method="_on_keep_area_area_entered"]
 [connection signal="area_exited" from="KeepArea" to="." method="_on_keep_area_area_exited"]

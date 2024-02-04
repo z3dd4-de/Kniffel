@@ -60,7 +60,7 @@ var sum_all_dice: int = 0
 
 func _ready() -> void:
 	Globals.current_die = null
-	
+
 
 func _start_game():
 	_reset_values()
@@ -71,7 +71,6 @@ func _start_game():
 	dice.append(die_4)
 	player_round = 1
 	game_round = 1
-	#_calc_sum_top()
 	_update_player_label()
 	_roll_dice()
 	$Timer.start()
@@ -83,7 +82,6 @@ func _update_player_label() -> void:
 
 func _next_round() -> void:
 	_save_player()
-	print("Next Round: " + str(player_count))
 	$CanvasLayer/NextRoundPanel.visible = true
 	if players.size() == 1:
 		$CanvasLayer/NextRoundPanel/NextRoundButton.text = "Nächste Runde"
@@ -92,10 +90,6 @@ func _next_round() -> void:
 		current_player += 1
 		if current_player == player_count:
 			current_player = 0
-
-
-#func  _next_player() -> void:
-#	_save_player()
 
 
 func _reset_values() -> void:
@@ -113,7 +107,6 @@ func _reset_values() -> void:
 	kniffel_value.text = ""
 	chance_value.text = ""
 	_disable_all()
-	$GamePanel/SumsContainer/BonusValue.text = "0"
 
 
 func _disable_all() -> void:
@@ -222,14 +215,14 @@ func _check_values() -> void:
 					kl_str_button.disabled = false
 					if values.has(5):
 						gr_str_button.disabled = false
-	elif values.has(2):
+	if values.has(2):
 		if values.has(3):
 			if values.has(4):
 				if values.has(5):
 					kl_str_button.disabled = false
 					if values.has(6):
 						gr_str_button.disabled = false
-	elif values.has(3):
+	if values.has(3):
 		if values.has(4):
 			if values.has(5):
 				if values.has(6):
@@ -258,6 +251,7 @@ func _check_values() -> void:
 	else:
 		fh_button.disabled = true
 	if dice_counts.has(5) and (kniffel_value.text == "" or kniffel_value.text != "0"):
+		$CanvasLayer/KniffelPanel.visible = true
 		kniffel_button.disabled = false
 		if _4_er_pasch_value.text == "":
 			_4_er_pasch_button.disabled = false
@@ -355,6 +349,8 @@ func _on_next_round_button_pressed() -> void:
 	_load_player()
 	if game_round < 14 and current_player == 0:
 		game_round += 1
+	if game_round == 14:
+		$CanvasLayer/EndGamePanel.visible = true
 	player_round = 1
 	_update_player_label()
 	_reset_dice()
@@ -810,3 +806,13 @@ func _on_delete_ch_button_pressed():
 	$GamePanel/DeleteChButton.visible = false
 	_disable_all()
 	_next_round()
+
+
+func _on_kniffel_clear_button_pressed():
+	$CanvasLayer/KniffelPanel.visible = false
+
+
+func _on_main_menu_button_pressed():
+	$CanvasLayer/EndGamePanel.visible = false
+	$GamePanel.visible = false
+	$CanvasLayer/NewGamePanel.visible = true
