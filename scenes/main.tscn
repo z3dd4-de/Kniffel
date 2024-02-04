@@ -1,0 +1,790 @@
+[gd_scene load_steps=10 format=3 uid="uid://dll5v1xhuq4yk"]
+
+[ext_resource type="Theme" uid="uid://cyggt5eemrenc" path="res://theme/theme.tres" id="1_12t6l"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_gn6gb"]
+[ext_resource type="Texture2D" uid="uid://duullsecmpkww" path="res://art/BlauerHintergrund.png" id="2_i1gqh"]
+[ext_resource type="Texture2D" uid="uid://clbxibfww1g5o" path="res://art/Show_sums.png" id="4_kveva"]
+[ext_resource type="FontFile" uid="uid://b717gwhbfimct" path="res://font/INKFREE.TTF" id="4_slliq"]
+[ext_resource type="PackedScene" uid="uid://dgdpi8r2jt6xf" path="res://scenes/die.tscn" id="5_mjbfu"]
+[ext_resource type="Texture2D" uid="uid://kev12ya8c4dp" path="res://art/cancel_button.png" id="6_td7rd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlamh"]
+size = Vector2(170, 114)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t88nv"]
+size = Vector2(140, 115)
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_gn6gb")
+
+[node name="background" type="Sprite2D" parent="."]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(151, 328)
+scale = Vector2(0.488542, 0.740741)
+texture = ExtResource("2_i1gqh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NextRoundPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -98.0
+offset_top = -53.5
+offset_right = 98.0
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="NextRoundButton" type="Button" parent="CanvasLayer/NextRoundPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -15.5
+offset_right = 68.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Nächster Spieler"
+
+[node name="NewGamePanel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -89.0
+offset_right = 124.0
+offset_bottom = 89.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/NewGamePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -55.0
+offset_right = 77.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/NewGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Neues Spiel"
+
+[node name="HighscoreButton" type="Button" parent="CanvasLayer/NewGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Highscores"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/NewGamePanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Beenden"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/NewGamePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -49.5
+offset_right = 91.5
+offset_bottom = 49.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CountPlayersLabel" type="Label" parent="CanvasLayer/NewGamePanel/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Anzahl Spieler"
+
+[node name="CountPlayersLineEdit" type="LineEdit" parent="CanvasLayer/NewGamePanel/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "1"
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/NewGamePanel/VBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Weiter"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="CanvasLayer/NewGamePanel"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -45.5
+offset_right = 76.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayersNameLabel" type="Label" parent="CanvasLayer/NewGamePanel/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Spielername"
+
+[node name="PlayernameLineEdit" type="LineEdit" parent="CanvasLayer/NewGamePanel/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Spieler"
+placeholder_text = "Spielername"
+
+[node name="ContinueButton2" type="Button" parent="CanvasLayer/NewGamePanel/VBoxContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 30
+text = "Weiter"
+
+[node name="RenewArea" type="Area2D" parent="."]
+visible = false
+z_index = -1
+y_sort_enabled = true
+position = Vector2(8, 523)
+
+[node name="Label" type="Label" parent="RenewArea"]
+visible = false
+offset_left = -4.0
+offset_top = 2.0
+offset_right = 88.0
+offset_bottom = 21.0
+theme = ExtResource("1_12t6l")
+theme_override_font_sizes/font_size = 18
+text = "Neu würfeln"
+
+[node name="Panel" type="Panel" parent="RenewArea"]
+visible = false
+offset_left = -4.0
+offset_right = 165.0
+offset_bottom = 113.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RenewArea"]
+position = Vector2(80, 56)
+shape = SubResource("RectangleShape2D_dlamh")
+
+[node name="NewRollDiceButton" type="Button" parent="RenewArea"]
+offset_left = -6.0
+offset_top = -1.0
+offset_right = 84.0
+offset_bottom = 22.0
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Neu würfeln"
+
+[node name="KeepArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(184, 527)
+
+[node name="Label" type="Label" parent="KeepArea"]
+offset_right = 78.0
+offset_bottom = 23.0
+theme = ExtResource("1_12t6l")
+theme_override_font_sizes/font_size = 20
+text = "Behalten"
+
+[node name="Panel" type="Panel" parent="KeepArea"]
+visible = false
+offset_left = -6.0
+offset_top = -4.0
+offset_right = 131.0
+offset_bottom = 109.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KeepArea"]
+position = Vector2(64, 53.5)
+shape = SubResource("RectangleShape2D_t88nv")
+
+[node name="GamePanel" type="Panel" parent="."]
+visible = false
+offset_right = 320.0
+offset_bottom = 521.0
+
+[node name="PlayerLabel" type="RichTextLabel" parent="GamePanel"]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 31.0
+theme = ExtResource("1_12t6l")
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_font_size = 6
+text = "Player x"
+
+[node name="GridContainer" type="GridContainer" parent="GamePanel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 30.0
+offset_right = 311.0
+offset_bottom = 494.0
+columns = 3
+
+[node name="1erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "1er"
+
+[node name="1erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="1erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="2erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "2er"
+
+[node name="2erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="2erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="3erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "3er"
+
+[node name="3erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="3erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="4erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4er"
+
+[node name="4erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="4erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="5erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "5er"
+
+[node name="5erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="5erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="6erLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "6er"
+
+[node name="6erValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="6erButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="3erPaschLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "3er Pasch"
+
+[node name="3erPaschValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="3erPaschButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="4erPaschLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "4er Pasch"
+
+[node name="4erPaschValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="4erPaschButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="KlStrLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Kleine Straße"
+
+[node name="KlStrValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="KlStrButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="GrStrLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Große Straße"
+
+[node name="GrStrValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="GrStrButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="FHLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Full House"
+
+[node name="FHValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="FHButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="KniffelLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Kniffel"
+
+[node name="KniffelValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="KniffelButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="ChanceLabel" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Chance"
+
+[node name="ChanceValue" type="Label" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "0"
+
+[node name="ChanceButton" type="Button" parent="GamePanel/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("1_12t6l")
+text = "nehmen"
+
+[node name="SumsContainer" type="GridContainer" parent="GamePanel"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 65.0
+offset_top = 424.0
+offset_right = 297.0
+offset_bottom = 517.0
+columns = 2
+
+[node name="TopSumLabel" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Summe oben"
+
+[node name="TopSumValue" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "64"
+horizontal_alignment = 2
+
+[node name="BonusLabel" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Bonus oben"
+
+[node name="BonusValue" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "+35"
+horizontal_alignment = 2
+
+[node name="BottomSumLabel" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Summe unten"
+
+[node name="BottomSumValue" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "110"
+horizontal_alignment = 2
+
+[node name="TotalSumLabel" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_color = Color(0.988235, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Summe gesamt"
+
+[node name="TotalSumValue" type="Label" parent="GamePanel/SumsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_color = Color(0.988235, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "209"
+horizontal_alignment = 2
+
+[node name="ShowSums" type="Sprite2D" parent="GamePanel"]
+position = Vector2(31, 446)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_kveva")
+
+[node name="ShowSumsButton" type="Button" parent="GamePanel/ShowSums"]
+offset_left = -180.0
+offset_top = -180.0
+offset_right = 170.0
+offset_bottom = 180.0
+text = " "
+
+[node name="Delete1Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 30.0
+offset_right = 278.0
+offset_bottom = 158.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete2Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 60.0
+offset_right = 278.0
+offset_bottom = 188.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete3Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 90.0
+offset_right = 278.0
+offset_bottom = 218.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete4Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 120.0
+offset_right = 278.0
+offset_bottom = 248.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete5Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 150.0
+offset_right = 278.0
+offset_bottom = 278.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete6Button" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 180.0
+offset_right = 278.0
+offset_bottom = 308.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete3PButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 210.0
+offset_right = 278.0
+offset_bottom = 338.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="Delete4PButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 240.0
+offset_right = 278.0
+offset_bottom = 368.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="DeleteKlStrButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 270.0
+offset_right = 278.0
+offset_bottom = 398.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="DeleteGrStrButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 300.0
+offset_right = 278.0
+offset_bottom = 428.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="DeleteFhButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 330.0
+offset_right = 278.0
+offset_bottom = 458.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="DeleteKnButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 360.0
+offset_right = 278.0
+offset_bottom = 488.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="DeleteChButton" type="TextureButton" parent="GamePanel"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 390.0
+offset_right = 278.0
+offset_bottom = 518.0
+scale = Vector2(0.2, 0.2)
+texture_normal = ExtResource("6_td7rd")
+
+[node name="die0" parent="." instance=ExtResource("5_mjbfu")]
+visible = false
+position = Vector2(33, 568)
+
+[node name="die1" parent="." instance=ExtResource("5_mjbfu")]
+visible = false
+position = Vector2(88, 568)
+id = 1
+
+[node name="die2" parent="." instance=ExtResource("5_mjbfu")]
+visible = false
+position = Vector2(143, 568)
+id = 2
+
+[node name="die3" parent="." instance=ExtResource("5_mjbfu")]
+visible = false
+position = Vector2(61, 608)
+id = 3
+
+[node name="die4" parent="." instance=ExtResource("5_mjbfu")]
+visible = false
+position = Vector2(116, 608)
+id = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/NextRoundPanel/NextRoundButton" to="." method="_on_next_round_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="text_changed" from="CanvasLayer/NewGamePanel/VBoxContainer2/CountPlayersLineEdit" to="." method="_on_count_players_line_edit_text_changed"]
+[connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer2/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/NewGamePanel/VBoxContainer3/ContinueButton2" to="." method="_on_continue_button_2_pressed"]
+[connection signal="pressed" from="RenewArea/NewRollDiceButton" to="." method="_on_new_roll_dice_button_pressed"]
+[connection signal="area_entered" from="KeepArea" to="." method="_on_keep_area_area_entered"]
+[connection signal="area_exited" from="KeepArea" to="." method="_on_keep_area_area_exited"]
+[connection signal="pressed" from="GamePanel/GridContainer/1erButton" to="." method="_on_1er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/2erButton" to="." method="_on_2er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/3erButton" to="." method="_on_3er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/4erButton" to="." method="_on_4er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/5erButton" to="." method="_on_5er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/6erButton" to="." method="_on_6er_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/3erPaschButton" to="." method="_on_3er_pasch_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/4erPaschButton" to="." method="_on_4er_pasch_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/KlStrButton" to="." method="_on_kl_str_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/GrStrButton" to="." method="_on_gr_str_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/FHButton" to="." method="_on_fh_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/KniffelButton" to="." method="_on_kniffel_button_pressed"]
+[connection signal="pressed" from="GamePanel/GridContainer/ChanceButton" to="." method="_on_chance_button_pressed"]
+[connection signal="pressed" from="GamePanel/ShowSums/ShowSumsButton" to="." method="_on_show_sums_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete1Button" to="." method="_on_delete_1_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete2Button" to="." method="_on_delete_2_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete3Button" to="." method="_on_delete_3_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete4Button" to="." method="_on_delete_4_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete5Button" to="." method="_on_delete_5_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete6Button" to="." method="_on_delete_6_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete3PButton" to="." method="_on_delete_3p_button_pressed"]
+[connection signal="pressed" from="GamePanel/Delete4PButton" to="." method="_on_delete_4p_button_pressed"]
+[connection signal="pressed" from="GamePanel/DeleteKlStrButton" to="." method="_on_delete_kl_str_button_pressed"]
+[connection signal="pressed" from="GamePanel/DeleteGrStrButton" to="." method="_on_delete_gr_str_button_pressed"]
+[connection signal="pressed" from="GamePanel/DeleteFhButton" to="." method="_on_delete_fh_button_pressed"]
+[connection signal="pressed" from="GamePanel/DeleteKnButton" to="." method="_on_delete_kn_button_pressed"]
+[connection signal="pressed" from="GamePanel/DeleteChButton" to="." method="_on_delete_ch_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

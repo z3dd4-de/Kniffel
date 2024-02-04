@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbi8x31ubj5le"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_kuwua"]
+[ext_resource type="Texture2D" uid="uid://d1o72f5v8di5a" path="res://art/Wooden_button.png" id="2_owmld"]
+[ext_resource type="Theme" uid="uid://cyggt5eemrenc" path="res://theme/theme.tres" id="3_w4qqu"]
+[ext_resource type="Texture2D" uid="uid://b71c3217hci7c" path="res://art/score.png" id="4_p2pre"]
+
+[node name="ui" type="CanvasLayer"]
+script = ExtResource("1_kuwua")
+
+[node name="end_of_game_screen" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="end_of_game_screen"]
+position = Vector2(159.6, 542.3)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_owmld")
+
+[node name="RestartButton" type="Button" parent="end_of_game_screen"]
+offset_left = 104.6
+offset_top = 528.3
+offset_right = 216.6
+offset_bottom = 554.3
+theme = ExtResource("3_w4qqu")
+text = "Neustart
+"
+
+[node name="end_game_score" type="Node2D" parent="end_of_game_screen"]
+
+[node name="Sprite2D" type="Sprite2D" parent="end_of_game_screen/end_game_score"]
+position = Vector2(159, 301.5)
+scale = Vector2(0.150361, 0.266103)
+texture = ExtResource("4_p2pre")
+
+[node name="player_won_label" type="RichTextLabel" parent="end_of_game_screen/end_game_score"]
+offset_left = 42.0
+offset_top = 147.0
+offset_right = 288.0
+offset_bottom = 451.0
+theme = ExtResource("3_w4qqu")
+text = "Test"
+
+[connection signal="pressed" from="end_of_game_screen/RestartButton" to="." method="_on_restart_button_pressed"]

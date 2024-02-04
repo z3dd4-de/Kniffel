@@ -1,0 +1,7 @@
+res://scenes/ui.tscn
+res://scripts/die.gd
+res://scenes/main.tscn
+res://scenes/die.tscn
+res://scripts/main.gd
+res://scripts/ui.gd
+res://scripts/player.gd
