@@ -1,12 +1,33 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbi8x31ubj5le"]
+[gd_scene load_steps=5 format=3 uid="uid://bqdkxm733uhkr"]
 
-[ext_resource type="Script" path="res://scripts/ui.gd" id="1_kuwua"]
 [ext_resource type="Texture2D" uid="uid://d1o72f5v8di5a" path="res://art/Wooden_button.png" id="2_owmld"]
 [ext_resource type="Theme" uid="uid://cyggt5eemrenc" path="res://theme/theme.tres" id="3_w4qqu"]
 [ext_resource type="Texture2D" uid="uid://b71c3217hci7c" path="res://art/score.png" id="4_p2pre"]
 
+[sub_resource type="GDScript" id="GDScript_1kb7i"]
+script/source = "class_name Ui extends CanvasLayer
+
+signal game_started
+var player_won_text: String
+
+@onready var end_of_game_screen = $end_of_game_screen
+@onready var won_label = $end_of_game_screen/end_game_score/player_won_label
+
+func _ready() -> void:
+	pass
+
+func update_player_won() -> void:
+	won_label.text = \"Spieler x hat gewonnen!\"
+
+func on_game_over() -> void:
+	end_of_game_screen.visible = true
+
+func _on_restart_button_pressed() -> void:
+	get_tree().reload_current_scene()
+"
+
 [node name="ui" type="CanvasLayer"]
-script = ExtResource("1_kuwua")
+script = SubResource("GDScript_1kb7i")
 
 [node name="end_of_game_screen" type="Node2D" parent="."]
 

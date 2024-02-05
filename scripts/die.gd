@@ -18,12 +18,12 @@ func _ready() -> void:
 	start_position = position
 
 
-func _process(delta) -> void:
+func _process(_delta) -> void:
 	if running:
 		roll()
 
 
-func start_rolling():
+func start_rolling() -> void:
 	running = true
 	$Timer.start()
 
@@ -53,8 +53,6 @@ func _physics_process(delta) -> void:
 
 
 func _on_timer_timeout() -> void:
-	#print("ID " + str(id) + " " + str(value))
-	#print(start_position)
 	rotation = 0
 	running = false
 
@@ -66,7 +64,7 @@ func _input(event) -> void:
 			Globals.current_die = null
 
 
-func _on_area_2d_input_event(viewport, event, shape_idx) -> void:
+func _on_area_2d_input_event(_viewport, event, _shape_idx) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		Globals.current_die = self
 		selected = true

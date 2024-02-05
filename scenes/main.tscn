@@ -270,27 +270,355 @@ theme_override_fonts/font = ExtResource("4_slliq")
 theme_override_font_sizes/font_size = 30
 text = "Hauptmenü"
 
+[node name="HighscoresPanel" type="Panel" parent="CanvasLayer"]
+visible = false
+offset_top = 1.0
+offset_right = 318.0
+offset_bottom = 593.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HighscoresPanel"]
+layout_mode = 0
+offset_right = 316.0
+offset_bottom = 531.0
+
+[node name="Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_12t6l")
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "
+Highscores"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/HighscoresPanel/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 20
+text = "Spielername"
+
+[node name="Label2" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_slliq")
+theme_override_font_sizes/font_size = 20
+text = "Punkte"
+horizontal_alignment = 2
+
+[node name="Name01Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points01Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name02Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points02Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name03Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points03Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name04Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points04Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name05Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points05Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name06Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points06Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name07Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points07Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name08Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points08Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name09Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points09Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name10Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points10Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name11Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points11Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name12Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points12Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name13Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points13Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name14Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points14Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name15Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points15Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name16Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points16Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name17Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points17Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name18Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points18Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name19Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points19Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name20Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points20Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name21Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points21Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name22Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points22Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name23Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points23Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name24Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points24Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="Name25Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+
+[node name="Points25Label" type="Label" parent="CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Playername"
+horizontal_alignment = 2
+
+[node name="CloseHighscoresButton" type="Button" parent="CanvasLayer/HighscoresPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_slliq")
+text = "Zurück"
+
 [node name="RenewArea" type="Area2D" parent="."]
 visible = false
 z_index = -1
 y_sort_enabled = true
 position = Vector2(8, 523)
-
-[node name="Label" type="Label" parent="RenewArea"]
-visible = false
-offset_left = -4.0
-offset_top = 2.0
-offset_right = 88.0
-offset_bottom = 21.0
-theme = ExtResource("1_12t6l")
-theme_override_font_sizes/font_size = 18
-text = "Neu würfeln"
-
-[node name="Panel" type="Panel" parent="RenewArea"]
-visible = false
-offset_left = -4.0
-offset_right = 165.0
-offset_bottom = 113.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RenewArea"]
 position = Vector2(80, 56)
@@ -314,13 +642,6 @@ offset_bottom = 23.0
 theme = ExtResource("1_12t6l")
 theme_override_font_sizes/font_size = 20
 text = "Behalten"
-
-[node name="Panel" type="Panel" parent="KeepArea"]
-visible = false
-offset_left = -6.0
-offset_top = -4.0
-offset_right = 131.0
-offset_bottom = 109.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KeepArea"]
 position = Vector2(64, 53.5)
@@ -864,6 +1185,7 @@ one_shot = true
 [connection signal="pressed" from="CanvasLayer/KniffelPanel/VBoxContainer/KniffelClearButton" to="." method="_on_kniffel_clear_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndGamePanel/VBoxContainer/HighscoreButton" to="." method="_on_highscore_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/EndGamePanel/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HighscoresPanel/VBoxContainer/CloseHighscoresButton" to="." method="_on_close_highscores_button_pressed"]
 [connection signal="pressed" from="RenewArea/NewRollDiceButton" to="." method="_on_new_roll_dice_button_pressed"]
 [connection signal="area_entered" from="KeepArea" to="." method="_on_keep_area_area_entered"]
 [connection signal="area_exited" from="KeepArea" to="." method="_on_keep_area_area_exited"]

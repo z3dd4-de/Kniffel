@@ -39,3 +39,7 @@ func _init(p_name: String):
 	_fh = 0
 	_chance = 0
 	_round = 1
+	_sum_up = 0
+	_bonus = 0
+	_sum_bottom = 0
+	_sum_total = 0

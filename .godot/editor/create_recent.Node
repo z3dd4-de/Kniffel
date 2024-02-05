@@ -1,5 +1,7 @@
 Button
 Label
+GridContainer
+MarginContainer
 VBoxContainer
 Panel
 RichTextLabel
@@ -10,5 +12,3 @@ Area2D
 LineEdit
 Timer
 Node2D
-StaticBody2D
-Sprite2D

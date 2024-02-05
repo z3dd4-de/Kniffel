@@ -57,9 +57,115 @@ var bonus: int = 0
 var total_sum: int = 0
 var sum_all_dice: int = 0
 
+# SaveLoad
+var m_Password = "kN1fF3L_p455w0Rd"
+var m_GameStateFile = "user://kniffel.dat"       # File path to the saved game state
+var highscore: Highscores
+
+@onready var name_01_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name01Label
+@onready var points_01_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points01Label
+@onready var name_02_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name02Label
+@onready var points_02_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points02Label
+@onready var name_03_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name03Label
+@onready var points_03_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points03Label
+@onready var name_04_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name04Label
+@onready var points_04_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points04Label
+@onready var name_05_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name05Label
+@onready var points_05_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points05Label
+@onready var name_06_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name06Label
+@onready var points_06_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points06Label
+@onready var name_07_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name07Label
+@onready var points_07_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points07Label
+@onready var name_08_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name08Label
+@onready var points_08_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points08Label
+@onready var name_09_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name09Label
+@onready var points_09_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points09Label
+@onready var name_10_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name10Label
+@onready var points_10_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points10Label
+@onready var name_11_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name11Label
+@onready var points_11_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points11Label
+@onready var name_12_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name12Label
+@onready var points_12_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points12Label
+@onready var name_13_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name13Label
+@onready var points_13_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points13Label
+@onready var name_14_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name14Label
+@onready var points_14_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points14Label
+@onready var name_15_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name15Label
+@onready var points_15_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points15Label
+@onready var name_16_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name16Label
+@onready var points_16_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points16Label
+@onready var name_17_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name17Label
+@onready var points_17_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points17Label
+@onready var name_18_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name18Label
+@onready var points_18_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points18Label
+@onready var name_19_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name19Label
+@onready var points_19_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points19Label
+@onready var name_20_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name20Label
+@onready var points_20_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points20Label
+@onready var name_21_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name21Label
+@onready var points_21_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points21Label
+@onready var name_22_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name22Label
+@onready var points_22_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points22Label
+@onready var name_23_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name23Label
+@onready var points_23_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points23Label
+@onready var name_24_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name24Label
+@onready var points_24_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points24Label
+@onready var name_25_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Name25Label
+@onready var points_25_label = $CanvasLayer/HighscoresPanel/VBoxContainer/GridContainer/Points25Label
+
+var names = []
+var points = []
+
 
 func _ready() -> void:
 	Globals.current_die = null
+	names = [name_01_label, name_02_label, name_03_label, name_04_label, name_05_label, name_06_label, name_07_label, name_08_label, name_09_label, name_10_label, name_11_label, name_12_label, name_13_label, name_14_label, name_15_label, name_16_label, name_17_label, name_18_label, name_19_label, name_20_label, name_21_label, name_22_label, name_23_label, name_24_label, name_25_label]
+	points = [points_01_label, points_02_label, points_03_label, points_04_label, points_05_label, points_06_label, points_07_label, points_08_label, points_09_label, points_10_label, points_11_label, points_12_label, points_13_label, points_14_label, points_15_label, points_16_label, points_17_label, points_18_label, points_19_label, points_20_label, points_21_label, points_22_label, points_23_label, points_24_label, points_25_label]
+	SaveLoadHighscores.Initialize(m_GameStateFile, m_Password)
+	open_save_game()
+
+
+func _exit_tree():
+	write_save_game()
+	SaveLoadHighscores.Clear()
+
+
+func open_save_game():
+	var status = SaveLoadHighscores.OpenFile(FileAccess.READ)		# Open the file with READ access
+	if status != OK:
+		highscore = Highscores.new(25)
+		highscore.last_player = "PlayerName"
+		print("Unable to open the file %s. Received error: %d" % [m_GameStateFile, status])
+	else:
+		highscore = Highscores.new(25)
+		SaveLoadHighscores.Deserialize(highscore)
+		SaveLoadHighscores.CloseFile()
+
+
+func write_save_game():
+	var status = SaveLoadHighscores.OpenFile(FileAccess.WRITE)
+	if status != OK:
+		print("Unable to open the file %s. Received error: %d" % [m_GameStateFile, status])
+		return
+	SaveLoadHighscores.Serialize(highscore)
+	SaveLoadHighscores.CloseFile()
+
+
+func build_highscore_list():
+	var i = 0
+	for entry in highscore.list:
+		if !entry.is_empty():
+			var dict = entry
+			for key in dict:
+				var value = dict[key]
+				names[i].text = key
+				points[i].text = str(value)
+				names[i].visible = true
+				points[i].visible = true
+		else:
+			names[i].visible = false
+			points[i].visible = false
+		i += 1
 
 
 func _start_game():
@@ -212,21 +318,26 @@ func _check_values() -> void:
 		if values.has(2):
 			if values.has(3):
 				if values.has(4):
-					kl_str_button.disabled = false
+					if kl_str_value.text == "":
+						kl_str_button.disabled = false
 					if values.has(5):
-						gr_str_button.disabled = false
+						if gr_str_value.text == "":
+							gr_str_button.disabled = false
 	if values.has(2):
 		if values.has(3):
 			if values.has(4):
 				if values.has(5):
-					kl_str_button.disabled = false
+					if kl_str_value.text == "":
+						kl_str_button.disabled = false
 					if values.has(6):
-						gr_str_button.disabled = false
+						if gr_str_value.text == "":
+							gr_str_button.disabled = false
 	if values.has(3):
 		if values.has(4):
 			if values.has(5):
 				if values.has(6):
-					kl_str_button.disabled = false
+					if kl_str_value.text == "":
+						kl_str_button.disabled = false
 	if chance_value.text == "":
 		chance_button.disabled = false
 	else:
@@ -240,12 +351,12 @@ func _check_values() -> void:
 		_3_er_pasch_button.disabled = true
 	if dice_counts.has(4) and _4_er_pasch_value.text == "":
 		_4_er_pasch_button.disabled = false
-		if _3_er_pasch_value.text == "":
-			_3_er_pasch_button.disabled = false
-		else:
-			_3_er_pasch_button.disabled = true
 	else:
 		_4_er_pasch_button.disabled = true
+	if dice_counts.has(4) and _3_er_pasch_value.text == "":
+		_3_er_pasch_button.disabled = false
+	elif _3_er_pasch_value.text != "":
+		_3_er_pasch_button.disabled = true
 	if dice_counts.has(2) and dice_counts.has(3) and fh_value.text == "":
 		fh_button.disabled = false
 	else:
@@ -261,18 +372,22 @@ func _check_values() -> void:
 			_3_er_pasch_button.disabled = false
 		else:
 			_3_er_pasch_button.disabled = true
-	else:
+	if dice_counts.has(5) and kniffel_value.text == "0":
 		kniffel_button.disabled = true
+		if _4_er_pasch_value.text == "":
+			_4_er_pasch_button.disabled = false
+		else:
+			_4_er_pasch_button.disabled = true
+		if _3_er_pasch_value.text == "":
+			_3_er_pasch_button.disabled = false
+		else:
+			_3_er_pasch_button.disabled = true
 
 
 func _on_show_sums_button_pressed() -> void:
 	show_sums = !show_sums
 	sums_container.visible = show_sums
 
-
-#func _check_next_round() -> void:
-#	$CanvasLayer/Panel/NextRoundButton.text = "Nächste Runde"
-	
 
 func _on_1er_button_pressed() -> void:
 	var sum = 0
@@ -351,11 +466,44 @@ func _on_next_round_button_pressed() -> void:
 		game_round += 1
 	if game_round == 14:
 		$CanvasLayer/EndGamePanel.visible = true
+		$CanvasLayer/EndGamePanel/VBoxContainer/EndGameLabel.text = "Spiel beendet!\nGewonnen hat:\n" + _get_player_won()
+		$GamePanel.visible = false
+		$RenewArea.visible = false
+		$KeepArea.visible = false
+		die_0.visible = false
+		die_1.visible = false
+		die_2.visible = false
+		die_3.visible = false
+		die_4.visible = false
 	player_round = 1
 	_update_player_label()
 	_reset_dice()
 	_roll_dice()
 	$Timer.start()
+
+
+func _get_player_won() -> String:
+	var _points: int = 0
+	var _p_name: String = ""
+	if players.size() == 1:
+		_p_name = players[0].player_name
+		_points = players[0]._sum_total
+		_test_highscore(_p_name, _points)
+	else:
+		for player in players:
+			_test_highscore(player.player_name, player._sum_total)
+			if player._sum_total >= _points:
+				_p_name = player.player_name
+				_points = player._sum_total
+	return _p_name + " (" + str(_points) + ")"
+
+
+func _test_highscore(player_name: String, _points: int) -> void:
+	if highscore.test_points(_points):
+		highscore.add_entry(player_name, _points)
+		highscore.show_entries()
+		build_highscore_list()
+		highscore.last_player = str(player_name)
 
 
 func _reset_dice():
@@ -673,7 +821,11 @@ func _on_new_game_button_pressed():
 
 
 func _on_highscore_button_pressed():
-	pass # Replace with function body.
+	build_highscore_list()
+	$CanvasLayer/HighscoresPanel.visible = true
+	$CanvasLayer/NewGamePanel.visible = false
+	if $CanvasLayer/EndGamePanel.visible:
+		$CanvasLayer/EndGamePanel.visible = false
 
 
 func _on_exit_button_pressed():
@@ -681,7 +833,6 @@ func _on_exit_button_pressed():
 
 
 func _on_continue_button_pressed():
-	#player_count = int($CanvasLayer/NewGamePanel/VBoxContainer2/CountPlayersLineEdit.text)
 	$CanvasLayer/NewGamePanel/VBoxContainer2.visible = false
 	$CanvasLayer/NewGamePanel/VBoxContainer3.visible = true
 	current_player = 0
@@ -704,7 +855,6 @@ func _on_continue_button_2_pressed():
 		die_2.visible = true
 		die_3.visible = true
 		die_4.visible = true
-		#$CanvasLayer/NewGamePanel/VBoxContainer3.visible = false
 		current_player = 0
 		_start_game()
 
@@ -815,4 +965,12 @@ func _on_kniffel_clear_button_pressed():
 func _on_main_menu_button_pressed():
 	$CanvasLayer/EndGamePanel.visible = false
 	$GamePanel.visible = false
+	$CanvasLayer/NewGamePanel.visible = true
+	$CanvasLayer/NewGamePanel/VBoxContainer.visible = true
+	$CanvasLayer/NewGamePanel/VBoxContainer2.visible = false
+	$CanvasLayer/NewGamePanel/VBoxContainer3.visible = false
+
+
+func _on_close_highscores_button_pressed():
+	$CanvasLayer/HighscoresPanel.visible = false
 	$CanvasLayer/NewGamePanel.visible = true

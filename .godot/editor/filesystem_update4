@@ -6,3 +6,4 @@ res://scripts/main.gd
 res://scripts/ui.gd
 res://scripts/player.gd
 res://scripts/highscores.gd
+res://save_load_highscores.gd

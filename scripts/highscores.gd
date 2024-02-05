@@ -39,7 +39,6 @@ func get_entry(p_name: String, p_points: int) -> Dictionary:
 
 
 func add_entry(p_name: String, p_points: int) -> void:
-	#var values = []
 	var test = test_empty()
 	if test != -1:		# The first max_values entries can directly be pushed to the array
 		list[test] = get_entry(p_name, p_points)
@@ -66,13 +65,13 @@ func test_values() -> void:
 			max_val = 0
 
 
-func get_min_value_position(min: int) -> int:
+func get_min_value_position(_min: int) -> int:
 	var pos = -1
 	for i in max_values:
 		var dict = list[i]
 		for key in dict:
 			var value = dict[key]
-			if value == min:
+			if value == _min:
 				pos = i
 	return pos
 
